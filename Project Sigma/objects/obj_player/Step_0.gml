@@ -1,5 +1,3 @@
-/// @description Insert description here
-
 //Movimento
 var _jump, _jump_r, _right, _left, _velH, _chao;
 
@@ -22,7 +20,8 @@ if(!_chao)
 	//Controlar a altura do pulo
 	if(_jump_r and velocidadeVertical < 0)//Soltar o botão de pulo
 	{
-		velocidadeVertical *= 0.5;;
+		velocidadeVertical *= 0.5;
+		playerState = "fall";
 	}
 }
 
@@ -30,4 +29,32 @@ if(!_chao)
 if(_chao and _jump)
 {
 	velocidadeVertical -= pulo;
+	playerState = "jump";
+}
+
+//Checar se está no chao
+if(_chao and _velH == 0)
+{
+	playerState = "idle";
+}
+
+if(_chao and _velH != 0)
+{
+	playerState = "run";
+}
+
+switch playerState
+{
+	case "idle":
+		sprite_index = spr_player_idle;
+		break;
+	case "jump":
+		sprite_index = spr_player_jump;
+		break;
+	case "fall":
+		sprite_index = spr_player_fall;
+		break;
+	case "run":
+		sprite_index = spr_player_run;
+		break;
 }

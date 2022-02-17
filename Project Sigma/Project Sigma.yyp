@@ -2,6 +2,7 @@
   "resources": [
     {"id":{"name":"spr_player_fall","path":"sprites/spr_player_fall/spr_player_fall.yy",},"order":3,},
     {"id":{"name":"spr_player_run","path":"sprites/spr_player_run/spr_player_run.yy",},"order":1,},
+    {"id":{"name":"spr_stair","path":"sprites/spr_stair/spr_stair.yy",},"order":7,},
     {"id":{"name":"spr_enemy1_idle","path":"sprites/spr_enemy1_idle/spr_enemy1_idle.yy",},"order":0,},
     {"id":{"name":"spr_enemy1_hit","path":"sprites/spr_enemy1_hit/spr_enemy1_hit.yy",},"order":2,},
     {"id":{"name":"spr_enemy1_attack","path":"sprites/spr_enemy1_attack/spr_enemy1_attack.yy",},"order":4,},
@@ -12,6 +13,7 @@
     {"id":{"name":"spr_enemy1_run","path":"sprites/spr_enemy1_run/spr_enemy1_run.yy",},"order":3,},
     {"id":{"name":"obj_enemy4","path":"objects/obj_enemy4/obj_enemy4.yy",},"order":4,},
     {"id":{"name":"obj_enemy1","path":"objects/obj_enemy1/obj_enemy1.yy",},"order":1,},
+    {"id":{"name":"obj_stair","path":"objects/obj_stair/obj_stair.yy",},"order":7,},
     {"id":{"name":"obj_enemy2","path":"objects/obj_enemy2/obj_enemy2.yy",},"order":2,},
     {"id":{"name":"obj_enemy3","path":"objects/obj_enemy3/obj_enemy3.yy",},"order":3,},
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},"order":6,},
@@ -62,7 +64,7 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.1.0.609",
+    "IDEVersion": "2022.1.1.610",
   },
   "resourceVersion": "1.4",
   "name": "Project Sigma",

@@ -2,5 +2,7 @@
 
 event_inherited();
 
+playerState = "idle";
+
 gravidade = 0.3;
 pulo = 10;
