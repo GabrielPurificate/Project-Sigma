@@ -1,8 +1,11 @@
-/// @description Insert description here
-
+//Herdando o código do create do pai (obj_control)
 event_inherited();
 
-playerState = "idle";
+#region declaraçõesPlayer
+	//Definindo o estado do player
+	playerState = "idle";
 
-gravidade = 0.3;
-pulo = 10;
+	//Movimento
+	gravidade = 0.3;
+	pulo = 10;
+#endregion

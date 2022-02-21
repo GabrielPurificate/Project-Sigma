@@ -16,12 +16,10 @@ velocidadeHorizontal = lerp(velocidadeHorizontal, _velH, 0.1);
 if(!_chao)
 {
 	velocidadeVertical += gravidade;
-	
 	//Controlar a altura do pulo
 	if(_jump_r and velocidadeVertical < 0)//Soltar o botão de pulo
 	{
 		velocidadeVertical *= 0.5;
-		playerState = "fall";
 	}
 }
 
@@ -29,7 +27,6 @@ if(!_chao)
 if(_chao and _jump)
 {
 	velocidadeVertical -= pulo;
-	playerState = "jump";
 }
 
 //Checar se está no chao
