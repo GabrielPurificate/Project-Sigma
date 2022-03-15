@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"spr_player_collision","path":"sprites/spr_player_collision/spr_player_collision.yy",},"order":4,},
     {"id":{"name":"spr_player_fall","path":"sprites/spr_player_fall/spr_player_fall.yy",},"order":3,},
     {"id":{"name":"spr_player_run","path":"sprites/spr_player_run/spr_player_run.yy",},"order":1,},
     {"id":{"name":"spr_stair","path":"sprites/spr_stair/spr_stair.yy",},"order":7,},
@@ -64,9 +65,9 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.1.1.610",
+    "IDEVersion": "2022.2.1.618",
   },
-  "resourceVersion": "1.4",
+  "resourceVersion": "1.5",
   "name": "Project Sigma",
   "tags": [],
   "resourceType": "GMProject",

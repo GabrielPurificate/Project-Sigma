@@ -11,7 +11,7 @@ _jump_r = keyboard_check_released(vk_space);
 _velH = (_right - _left) * velocidade;
 
 velocidadeHorizontal = lerp(velocidadeHorizontal, _velH, 0.1);
-
+show_debug_message(velocidadeVertical);
 //Aplicar a gravidade
 if(!_chao)
 {
@@ -29,29 +29,48 @@ if(_chao and _jump)
 	velocidadeVertical -= pulo;
 }
 
-//Checar se está no chao
-if(_chao and _velH == 0)
-{
-	playerState = "idle";
-}
-
-if(_chao and _velH != 0)
-{
-	playerState = "run";
-}
-
 switch playerState
 {
 	case "idle":
 		sprite_index = spr_player_idle;
-		break;
-	case "jump":
-		sprite_index = spr_player_jump;
-		break;
-	case "fall":
-		sprite_index = spr_player_fall;
+		if (_right or _left)
+		{
+			playerState = "run";
+		}
+		if(velocidadeVertical != 0)
+		{
+			playerState = "jump";
+		}
 		break;
 	case "run":
 		sprite_index = spr_player_run;
+		if (!_right and !_left)
+		{
+			playerState = "idle";
+		}
+		if(velocidadeVertical != 0)
+		{
+			playerState = "jump";
+		}
+		break;
+	case "jump":
+		//Caindo
+		if(velocidadeVertical > 0)
+		{
+			sprite_index = spr_player_fall;
+		}else
+		{
+			sprite_index = spr_player_jump;
+			//Não deve repetir a sprite de iniciar o pulo
+			if(image_index >= image_number)
+			{
+				image_index = image_number - 1;
+			}
+		}
+		//Trocar de estado
+		if(_chao)
+		{
+			playerState = "idle";
+		}
 		break;
 }
