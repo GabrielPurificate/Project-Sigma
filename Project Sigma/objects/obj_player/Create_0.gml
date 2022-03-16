@@ -1,6 +1,8 @@
 //Herdando o código do create do pai (obj_control)
 event_inherited();
 
+//imageSpeed = 55 / room_speed;
+
 showDebug = 1;
 
 #region declaraçõesPlayer

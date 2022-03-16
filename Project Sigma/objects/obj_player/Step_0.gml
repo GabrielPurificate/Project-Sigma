@@ -1,5 +1,5 @@
 //Movimento
-var _jump, _jump_r, _right, _left, _velH, _chao;
+var _jump, _jump_r, _attack, _right, _left, _velH, _chao;
 
 _chao = place_meeting(x, y + 1, obj_block);
 
@@ -7,11 +7,12 @@ _right = keyboard_check(ord("D"));
 _left = keyboard_check(ord("A"));
 _jump = keyboard_check_pressed(vk_space);
 _jump_r = keyboard_check_released(vk_space);
+_attack = keyboard_check_pressed(ord("J"));
 
 _velH = (_right - _left) * velocidade;
 
 velocidadeHorizontal = lerp(velocidadeHorizontal, _velH, 0.1);
-show_debug_message(velocidadeVertical);
+
 //Aplicar a gravidade
 if(!_chao)
 {
@@ -29,6 +30,12 @@ if(_chao and _jump)
 	velocidadeVertical -= pulo;
 }
 
+//Cair do céu se cair pra fora da room
+if(y > room_height)
+{
+	velocidadeVertical = velocidadeVertical / 2;
+	y = room_height - room_height;
+}
 switch playerState
 {
 	case "idle":
@@ -37,20 +44,33 @@ switch playerState
 		{
 			playerState = "run";
 		}
-		if(velocidadeVertical != 0)
+		else if(_jump or velocidadeVertical != 0)
 		{
 			playerState = "jump";
+			image_index = 0;
+		}
+		else if (_attack)
+		{
+			playerState = "attack";
+			image_index = 0;
 		}
 		break;
 	case "run":
 		sprite_index = spr_player_run;
+		
 		if (!_right and !_left)
 		{
 			playerState = "idle";
 		}
-		if(velocidadeVertical != 0)
+		else if(_jump or velocidadeVertical != 0)
 		{
 			playerState = "jump";
+			image_index = 0;
+		}
+		else if (_attack)
+		{
+			playerState = "attack";
+			image_index = 0;
 		}
 		break;
 	case "jump":
@@ -58,6 +78,10 @@ switch playerState
 		if(velocidadeVertical > 0)
 		{
 			sprite_index = spr_player_fall;
+			if(place_meeting(x, y - 2, obj_block))
+			{
+				sprite_index = spr_player_touch_fall;
+			}
 		}else
 		{
 			sprite_index = spr_player_jump;
@@ -69,6 +93,19 @@ switch playerState
 		}
 		//Trocar de estado
 		if(_chao)
+		{
+			playerState = "idle";
+		}
+		break;
+	case "attack":
+		//Parar para bater
+		velocidadeHorizontal = 0;
+		
+		//Animação de bater
+		sprite_index = spr_player_fall;
+		
+		//Voltar para idle
+		if(image_index > image_number - 1)
 		{
 			playerState = "idle";
 		}
