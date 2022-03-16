@@ -8,6 +8,6 @@ showDebug = 1;
 	playerState = "idle";
 
 	//Movimento
-	gravidade = 0.3;
+	gravidade = 0.2;
 	pulo = 6;
 #endregion
