@@ -7,7 +7,7 @@ _right = keyboard_check(ord("D"));
 _left = keyboard_check(ord("A"));
 _jump = keyboard_check_pressed(vk_space);
 _jump_r = keyboard_check_released(vk_space);
-_attack = keyboard_check_pressed(ord("J"));
+_attack = keyboard_check_pressed(ord("J")) or mouse_check_button_pressed(mb_left);
 
 _velH = (_right - _left) * velocidade;
 
