@@ -15,7 +15,10 @@
     {"id":{"name":"obj_enemy4","path":"objects/obj_enemy4/obj_enemy4.yy",},"order":4,},
     {"id":{"name":"obj_enemy1","path":"objects/obj_enemy1/obj_enemy1.yy",},"order":1,},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":8,},
+    {"id":{"name":"spr_player_attack_3","path":"sprites/spr_player_attack_3/spr_player_attack_3.yy",},"order":2,},
+    {"id":{"name":"spr_player_attack_2","path":"sprites/spr_player_attack_2/spr_player_attack_2.yy",},"order":1,},
     {"id":{"name":"obj_stair","path":"objects/obj_stair/obj_stair.yy",},"order":7,},
+    {"id":{"name":"spr_player_attack_1","path":"sprites/spr_player_attack_1/spr_player_attack_1.yy",},"order":0,},
     {"id":{"name":"spr_player_touch_fall","path":"sprites/spr_player_touch_fall/spr_player_touch_fall.yy",},"order":5,},
     {"id":{"name":"obj_enemy2","path":"objects/obj_enemy2/obj_enemy2.yy",},"order":2,},
     {"id":{"name":"cenario","path":"sprites/cenario/cenario.yy",},"order":8,},
@@ -24,6 +27,7 @@
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
     {"id":{"name":"obj_control","path":"objects/obj_control/obj_control.yy",},"order":5,},
     {"id":{"name":"spr_player_idle","path":"sprites/spr_player_idle/spr_player_idle.yy",},"order":0,},
+    {"id":{"name":"spr_player_death","path":"sprites/spr_player_death/spr_player_death.yy",},"order":11,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [
@@ -59,6 +63,7 @@
     {"folderPath":"folders/Extensions.yy","order":14,"resourceVersion":"1.0","name":"Extensions","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Enemy1.yy","order":3,"resourceVersion":"1.0","name":"Enemy1","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Player.yy","order":6,"resourceVersion":"1.0","name":"Player","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/Player/Combat.yy","order":10,"resourceVersion":"1.0","name":"Combat","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

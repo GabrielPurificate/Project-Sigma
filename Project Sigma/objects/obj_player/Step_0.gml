@@ -102,12 +102,36 @@ switch playerState
 		velocidadeHorizontal = 0;
 		
 		//Animação de bater
-		sprite_index = spr_player_fall;
+		if(combo == 0)
+		{
+			sprite_index = spr_player_attack_1;
+		}
+		else if(combo == 1)
+		{
+			sprite_index = spr_player_attack_2;
+		}
+		else if(combo == 2)
+		{
+			sprite_index = spr_player_attack_3;
+		}
 		
-		//Voltar para idle
+		//Testar para saber se tem um proximo ataque em sequencia para uso
+		if(_attack and combo < 2 and image_index >= image_number -3)
+		{
+			combo++;
+			image_index = 0;
+		}
+		
+		//Resetar a sequencia se ela já tiver terminado
+		if(combo > 2)
+		{
+			combo = 0;
+		}
+		
+		//Retornar ao idle
 		if(image_index > image_number - 1)
 		{
 			playerState = "idle";
+			combo = 0;
 		}
-		break;
 }

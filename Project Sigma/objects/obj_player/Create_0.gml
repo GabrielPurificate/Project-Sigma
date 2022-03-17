@@ -5,6 +5,9 @@ event_inherited();
 
 showDebug = 1;
 
+//Pode usar ataque em sequencia
+combo = 0;
+
 #region declaraçõesPlayer
 	//Definindo o estado do player
 	playerState = "idle";
