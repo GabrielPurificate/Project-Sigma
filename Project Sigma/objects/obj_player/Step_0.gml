@@ -35,43 +35,46 @@ if(y > room_height)
 {
 	room_restart();
 }
-switch playerState
+switch state
 {
 	case "idle":
 		sprite_index = spr_player_idle;
+		
 		if (_right and !_left or !_right and _left)
 		{
-			playerState = "run";
+			state = "run";
 		}
 		else if(_jump or sign(velocidadeVertical) != 0)
 		{
-			playerState = "jump";
+			state = "jump";
 			image_index = 0;
 		}
 		else if (_attack)
 		{
-			playerState = "attack";
+			state = "attack";
 			image_index = 0;
 		}
 		break;
+		
 	case "run":
 		sprite_index = spr_player_run;
 		
 		if (!_right and !_left or _right and _left)
 		{
-			playerState = "idle";
+			state = "idle";
 		}
 		else if(_jump or sign(velocidadeVertical) != 0)
 		{
-			playerState = "jump";
+			state = "jump";
 			image_index = 0;
 		}
 		else if (_attack)
 		{
-			playerState = "attack";
+			state = "attack";
 			image_index = 0;
 		}
 		break;
+		
 	case "jump":
 		//Caindo
 		if(velocidadeVertical > 0)
@@ -93,9 +96,10 @@ switch playerState
 		//Trocar de estado
 		if(_chao)
 		{
-			playerState = "idle";
+			state = "idle";
 		}
 		break;
+		
 	case "attack":
 		//Parar para bater
 		velocidadeHorizontal = 0;
@@ -114,11 +118,27 @@ switch playerState
 			sprite_index = spr_player_attack_3;
 		}
 		
+		//Criar o objeto de dano
+		if(image_index >= 2 and hit == noone and possoAtacar == true)
+		{
+			hit = instance_create_layer(x + sprite_width / 3, y - sprite_height / 2, layer, obj_hit);
+			hit.dano = ataque * comboMulti;
+			hit.pai = id;
+			possoAtacar = false;
+		}
+		
 		//Testar para saber se tem um proximo ataque em sequencia para uso
 		if(_attack and combo < 2 and image_index >= image_number -3)
 		{
 			combo++;
 			image_index = 0;
+			possoAtacar = true;
+			comboMulti ++;
+			if(hit)
+			{
+				instance_destroy(hit, false);
+				hit = noone;
+			}
 		}
 		
 		//Resetar a sequencia se ela já tiver terminado
@@ -130,7 +150,15 @@ switch playerState
 		//Retornar ao idle
 		if(image_index > image_number - 1)
 		{
-			playerState = "idle";
+			state = "idle";
 			combo = 0;
+			possoAtacar = true;
+			comboMulti = 1;
+			if(hit)
+			{
+				instance_destroy(hit, false);
+				hit = noone;
+			}
 		}
+		break;
 }

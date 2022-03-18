@@ -85,8 +85,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Player",
-    "path": "folders/Sprites/Player.yy",
+    "name": "Combat",
+    "path": "folders/Sprites/Player/Combat.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_player_death",

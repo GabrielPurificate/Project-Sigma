@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Utils",
+    "path": "folders/Sprites/Utils.yy",
   },
   "resourceVersion": "1.0",
   "name": "cenario",

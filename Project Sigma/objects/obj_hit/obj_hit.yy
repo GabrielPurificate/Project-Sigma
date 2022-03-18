@@ -1,19 +1,13 @@
 {
   "spriteId": {
-    "name": "spr_enemy1_idle",
-    "path": "sprites/spr_enemy1_idle/spr_enemy1_idle.yy",
+    "name": "spr_player_attack_collision",
+    "path": "sprites/spr_player_attack_collision/spr_player_attack_collision.yy",
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": {
-    "name": "spr_enemy1_collision",
-    "path": "sprites/spr_enemy1_collision/spr_enemy1_collision.yy",
-  },
+  "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "obj_control",
-    "path": "objects/obj_control/obj_control.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -28,8 +22,8 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -38,7 +32,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_enemy1",
+  "name": "obj_hit",
   "tags": [],
   "resourceType": "GMObject",
 }

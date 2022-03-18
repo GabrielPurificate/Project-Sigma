@@ -9,33 +9,57 @@ if(!_chao)
 	velocidadeVertical += gravidade * massa;
 }
 
-if(position_meeting(mouse_x, mouse_y, obj_enemy1))
+switch(state)
 {
-	if(mouse_check_button(mb_right))
-	{
-		velocidadeVertical = 0;
-		x = mouse_x;
-		y = mouse_y;
-	}
-}
-
-if(keyboard_check(ord("K")))
-{
-	sprite_index = spr_enemy1_attack;
-}
-else if(keyboard_check(ord("L")))
-{
-	sprite_index = spr_enemy1_hit;
-}
-else if(keyboard_check(ord("I")))
-{
-	sprite_index = spr_enemy1_run;
-}
-else if(keyboard_check(ord("O")))
-{
-	sprite_index = spr_enemy1_death;
-}
-else
-{
-	sprite_index = spr_enemy1_idle;
+	case "idle":
+		if(sprite_index != spr_enemy1_idle)
+		{
+			image_index = 0;
+		}
+		
+		sprite_index = spr_enemy1_idle;
+		break;
+	
+	case "hit":
+		if (sprite_index != spr_enemy1_hit)
+		{
+			image_index = 0;
+		}
+		
+		sprite_index = spr_enemy1_hit;
+				
+		//Trocar de estado
+		if(image_index > image_number - 1)
+		{
+			//Checar se ainda tem vida
+			if(vidaAtual > 0)
+			{
+				state = "idle";
+			}
+			else if(vidaAtual <= 0)
+			{
+				state = "death"
+			}
+		}
+		break;
+		
+	case "death":
+		if (sprite_index != spr_enemy1_death)
+		{
+			image_index = 0;
+		}
+		
+		sprite_index = spr_enemy1_death;
+		
+		//Morrendo
+		if(image_index > image_number - 1)
+		{
+			image_speed = 0;
+			image_alpha -= 0.05;
+			if(image_alpha <= 0)
+			{
+				instance_destroy();
+			}
+		}
+		break;
 }

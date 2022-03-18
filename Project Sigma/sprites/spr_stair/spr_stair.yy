@@ -1,6 +1,6 @@
 {
   "bboxMode": 0,
-  "collisionKind": 0,
+  "collisionKind": 4,
   "type": 0,
   "origin": 0,
   "preMultiplyAlpha": false,
@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Utils",
+    "path": "folders/Sprites/Utils.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_stair",
