@@ -1,6 +1,8 @@
 //Herdando o código do create do pai (obj_control)
 event_inherited();
 
+velocidade = 3.5;
+
 //imageSpeed = 55 / room_speed;
 
 showDebug = 1;
@@ -9,10 +11,13 @@ showDebug = 1;
 combo = 0;
 
 #region declaraçõesPlayer
+	//Vida
+	vidaMax = 3;
+	vidaAtual = vidaMax;
 	//Definindo o estado do player
 	playerState = "idle";
 
 	//Movimento
-	gravidade = 0.2;
+	massa = 1;
 	pulo = 6;
 #endregion

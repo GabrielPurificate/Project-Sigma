@@ -1,4 +1,4 @@
-//Movimento
+//Definir Variaveis
 var _jump, _jump_r, _attack, _right, _left, _velH, _chao;
 
 _chao = place_meeting(x, y + 1, obj_block);
@@ -16,7 +16,7 @@ velocidadeHorizontal = lerp(velocidadeHorizontal, _velH, 0.1);
 //Aplicar a gravidade
 if(!_chao)
 {
-	velocidadeVertical += gravidade;
+	velocidadeVertical += gravidade * massa;
 	//Controlar a altura do pulo
 	if(_jump_r and velocidadeVertical < 0)//Soltar o botão de pulo
 	{
@@ -33,18 +33,17 @@ if(_chao and _jump)
 //Cair do céu se cair pra fora da room
 if(y > room_height)
 {
-	velocidadeVertical = velocidadeVertical / 2;
-	y = room_height - room_height;
+	room_restart();
 }
 switch playerState
 {
 	case "idle":
 		sprite_index = spr_player_idle;
-		if (_right or _left)
+		if (_right and !_left or !_right and _left)
 		{
 			playerState = "run";
 		}
-		else if(_jump or velocidadeVertical != 0)
+		else if(_jump or sign(velocidadeVertical) != 0)
 		{
 			playerState = "jump";
 			image_index = 0;
@@ -58,11 +57,11 @@ switch playerState
 	case "run":
 		sprite_index = spr_player_run;
 		
-		if (!_right and !_left)
+		if (!_right and !_left or _right and _left)
 		{
 			playerState = "idle";
 		}
-		else if(_jump or velocidadeVertical != 0)
+		else if(_jump or sign(velocidadeVertical) != 0)
 		{
 			playerState = "jump";
 			image_index = 0;

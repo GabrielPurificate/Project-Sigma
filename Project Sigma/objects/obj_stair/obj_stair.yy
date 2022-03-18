@@ -5,7 +5,10 @@
   },
   "solid": false,
   "visible": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_stair",
+    "path": "sprites/spr_stair/spr_stair.yy",
+  },
   "persistent": false,
   "parentObjectId": {
     "name": "obj_block",
