@@ -7,7 +7,7 @@
 	ataque = 1;
 	state = "idle";
 	
-	showDebug = 1;
+	showDebug = false;
 #endregion
 
 if (!layer_sequence_exists("Assets", sq_logo) and room == rm_logo)

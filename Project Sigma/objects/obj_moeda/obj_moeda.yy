@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_attack_collision",
-    "path": "sprites/spr_attack_collision/spr_attack_collision.yy",
+    "name": "spr_moeda",
+    "path": "sprites/spr_moeda/spr_moeda.yy",
   },
   "solid": false,
   "visible": true,
@@ -22,7 +22,6 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
@@ -32,7 +31,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_hit",
+  "name": "obj_moeda",
   "tags": [],
   "resourceType": "GMObject",
 }

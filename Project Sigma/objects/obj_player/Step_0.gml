@@ -13,6 +13,13 @@ _velH = (_right - _left) * velocidade;
 
 velocidadeHorizontal = lerp(velocidadeHorizontal, _velH, 0.1);
 
+if(place_meeting(x, y, obj_teleport))
+{
+	room_goto_next();
+}
+
+show_debug_message(vidaAtual);
+
 //Aplicar a gravidade
 if(!_chao)
 {
@@ -30,11 +37,6 @@ if(_chao and _jump)
 	velocidadeVertical -= pulo;
 }
 
-//Cair do céu se cair pra fora da room
-if(y > room_height)
-{
-	room_restart();
-}
 switch state
 {
 	case "idle":
@@ -98,6 +100,11 @@ switch state
 		{
 			state = "idle";
 		}
+		else if (_attack)
+		{
+			state = "attack";
+			image_index = 0;
+		}
 		break;
 		
 	case "attack":
@@ -108,16 +115,31 @@ switch state
 		if(combo == 0)
 		{
 			sprite_index = spr_player_attack_1;
+			if(possoUsarSFX == true)
+			{
+				audio_play_sound(snd_player_attack_1, 1, false);
+				possoUsarSFX = false;
+			}
 		}
 		else if(combo == 1)
 		{
 			sprite_index = spr_player_attack_2;
+			if(possoUsarSFX == true)
+			{
+				audio_play_sound(snd_player_attack_2, 1, false);
+				possoUsarSFX = false;
+			}
 		}
 		else if(combo == 2)
 		{
 			sprite_index = spr_player_attack_3;
+			if(possoUsarSFX == true)
+			{
+				audio_play_sound(snd_player_attack_3, 1, false);
+				possoUsarSFX = false;
+			}
 		}
-		
+			
 		//Criar o objeto de dano
 		if(image_index >= 2 and hit == noone and possoAtacar == true)
 		{
@@ -139,6 +161,7 @@ switch state
 				instance_destroy(hit, false);
 				hit = noone;
 			}
+			possoUsarSFX = true;
 		}
 		
 		//Resetar a sequencia se ela já tiver terminado
@@ -158,6 +181,52 @@ switch state
 			{
 				instance_destroy(hit, false);
 				hit = noone;
+			}
+			possoUsarSFX = true;
+		}
+		break;
+		
+	case "hit":
+		if (sprite_index != spr_enemy1_hit)
+		{
+			image_index = 0;
+		}
+		
+		sprite_index = spr_enemy1_hit;
+				
+		//Trocar de estado
+		if(image_index > image_number - 1)
+		{
+			//Checar se ainda tem vida
+			if(vidaAtual > 0)
+			{
+				state = "idle";
+			}
+			else if(vidaAtual <= 0)
+			{
+				state = "death";
+			}
+		}
+		break;
+	
+	case "death":
+		velocidadeHorizontal = 0;
+		velocidadeVertical = 0;
+		if (sprite_index != spr_player_death)
+		{
+			image_index = 0;
+		}
+		
+		sprite_index = spr_player_death;
+		
+		//Morrendo
+		if(image_index > image_number - 1)
+		{
+			image_speed = 0;
+			image_alpha -= 0.05;
+			if(image_alpha <= 0)
+			{
+				instance_destroy();
 			}
 		}
 		break;

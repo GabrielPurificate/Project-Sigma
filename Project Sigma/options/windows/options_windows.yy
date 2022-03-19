@@ -3,7 +3,7 @@
   "option_windows_executable_name": "${project_name}.exe",
   "option_windows_version": "1.0.0.0",
   "option_windows_company_info": "Ciberware",
-  "option_windows_product_info": "Created with GameMaker Studio 2",
+  "option_windows_product_info": "Project Sigma",
   "option_windows_copyright_info": "",
   "option_windows_description_info": "Projeto de Conclusão de Curso do Instituto Federal Fluminense Campus Itaperuna",
   "option_windows_display_cursor": true,

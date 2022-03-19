@@ -2,7 +2,7 @@
 draw_self();
 
 #region debugs
-	if (showDebug == 1) 
+	if (showDebug == true) 
 	{
 		draw_set_valign(1);
 		draw_set_halign(1);

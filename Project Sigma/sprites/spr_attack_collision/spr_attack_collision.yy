@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"3c0d3359-34ca-426a-b272-234de32e0315","path":"sprites/spr_player_attack_collision/spr_player_attack_collision.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"3c0d3359-34ca-426a-b272-234de32e0315","path":"sprites/spr_player_attack_collision/spr_player_attack_collision.yy",},"LayerId":{"name":"62287a79-a4ee-4782-ba8a-2130bc26ebba","path":"sprites/spr_player_attack_collision/spr_player_attack_collision.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_player_attack_collision","path":"sprites/spr_player_attack_collision/spr_player_attack_collision.yy",},"resourceVersion":"1.0","name":"3c0d3359-34ca-426a-b272-234de32e0315","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"3c0d3359-34ca-426a-b272-234de32e0315","path":"sprites/spr_attack_collision/spr_attack_collision.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"3c0d3359-34ca-426a-b272-234de32e0315","path":"sprites/spr_attack_collision/spr_attack_collision.yy",},"LayerId":{"name":"62287a79-a4ee-4782-ba8a-2130bc26ebba","path":"sprites/spr_attack_collision/spr_attack_collision.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_attack_collision","path":"sprites/spr_attack_collision/spr_attack_collision.yy",},"resourceVersion":"1.0","name":"3c0d3359-34ca-426a-b272-234de32e0315","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_player_attack_collision","path":"sprites/spr_player_attack_collision/spr_player_attack_collision.yy",},
+    "spriteId": {"name":"spr_attack_collision","path":"sprites/spr_attack_collision/spr_attack_collision.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"4cc25a1d-5436-4fec-bf28-b99ba6a3f72e","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3c0d3359-34ca-426a-b272-234de32e0315","path":"sprites/spr_player_attack_collision/spr_player_attack_collision.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"4cc25a1d-5436-4fec-bf28-b99ba6a3f72e","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3c0d3359-34ca-426a-b272-234de32e0315","path":"sprites/spr_attack_collision/spr_attack_collision.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_player_attack_collision","path":"sprites/spr_player_attack_collision/spr_player_attack_collision.yy",},
+    "parent": {"name":"spr_attack_collision","path":"sprites/spr_attack_collision/spr_attack_collision.yy",},
     "resourceVersion": "1.4",
-    "name": "spr_player_attack_collision",
+    "name": "spr_attack_collision",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -69,11 +69,11 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Player",
-    "path": "folders/Sprites/Player.yy",
+    "name": "Utils",
+    "path": "folders/Sprites/Utils.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_player_attack_collision",
+  "name": "spr_attack_collision",
   "tags": [],
   "resourceType": "GMSprite",
 }

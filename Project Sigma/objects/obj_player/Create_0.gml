@@ -1,4 +1,5 @@
 //Herdando o código do create do pai (obj_control)
+randomize();
 event_inherited();
 
 velocidade = 3.5;
@@ -15,6 +16,7 @@ comboMulti = 1;
 	vidaAtual = vidaMax;
 	hit = noone;
 	possoAtacar = true;
+	possoUsarSFX = true;
 
 	//Movimento
 	massa = 1.1;
