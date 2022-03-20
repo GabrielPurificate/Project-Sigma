@@ -4,8 +4,6 @@ event_inherited();
 
 velocidade = 3.5;
 
-//imageSpeed = 55 / room_speed;
-
 //Pode usar ataque em sequencia
 combo = 0;
 comboMulti = 1;

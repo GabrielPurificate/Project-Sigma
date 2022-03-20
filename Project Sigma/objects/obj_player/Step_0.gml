@@ -18,7 +18,6 @@ if(place_meeting(x, y, obj_teleport))
 	room_goto_next();
 }
 
-show_debug_message(vidaAtual);
 
 //Aplicar a gravidade
 if(!_chao)
@@ -39,6 +38,7 @@ if(_chao and _jump)
 
 switch state
 {
+	#region idle
 	case "idle":
 		sprite_index = spr_player_idle;
 		
@@ -57,7 +57,9 @@ switch state
 			image_index = 0;
 		}
 		break;
+	#endregion
 		
+	#region run
 	case "run":
 		sprite_index = spr_player_run;
 		
@@ -76,7 +78,9 @@ switch state
 			image_index = 0;
 		}
 		break;
+	#endregion
 		
+	#region jump
 	case "jump":
 		//Caindo
 		if(velocidadeVertical > 0)
@@ -106,7 +110,9 @@ switch state
 			image_index = 0;
 		}
 		break;
+	#endregion
 		
+	#region attack
 	case "attack":
 		//Parar para bater
 		velocidadeHorizontal = 0;
@@ -117,7 +123,7 @@ switch state
 			sprite_index = spr_player_attack_1;
 			if(possoUsarSFX == true)
 			{
-				audio_play_sound(snd_player_attack_1, 1, false);
+				audio_play_sound(snd_player_attack_1, 2, false);
 				possoUsarSFX = false;
 			}
 		}
@@ -126,7 +132,7 @@ switch state
 			sprite_index = spr_player_attack_2;
 			if(possoUsarSFX == true)
 			{
-				audio_play_sound(snd_player_attack_2, 1, false);
+				audio_play_sound(snd_player_attack_2, 2, false);
 				possoUsarSFX = false;
 			}
 		}
@@ -135,7 +141,7 @@ switch state
 			sprite_index = spr_player_attack_3;
 			if(possoUsarSFX == true)
 			{
-				audio_play_sound(snd_player_attack_3, 1, false);
+				audio_play_sound(snd_player_attack_3, 2, false);
 				possoUsarSFX = false;
 			}
 		}
@@ -185,15 +191,19 @@ switch state
 			possoUsarSFX = true;
 		}
 		break;
+	#endregion
 		
+	#region hit
 	case "hit":
-		if (sprite_index != spr_enemy1_hit)
+		if(sprite_index != spr_player_hit)
 		{
+			sprite_index = spr_player_hit;
 			image_index = 0;
+			screenShake(5);
 		}
 		
-		sprite_index = spr_enemy1_hit;
-				
+		velocidadeHorizontal = 0;
+
 		//Trocar de estado
 		if(image_index > image_number - 1)
 		{
@@ -208,10 +218,15 @@ switch state
 			}
 		}
 		break;
+	#endregion
 	
+	#region death
 	case "death":
 		velocidadeHorizontal = 0;
-		velocidadeVertical = 0;
+		if(velocidadeVertical <= 0)
+		{
+			velocidadeVertical = 0;
+		}
 		if (sprite_index != spr_player_death)
 		{
 			image_index = 0;
@@ -222,12 +237,18 @@ switch state
 		//Morrendo
 		if(image_index > image_number - 1)
 		{
-			image_speed = 0;
-			image_alpha -= 0.05;
-			if(image_alpha <= 0)
-			{
-				instance_destroy();
-			}
+			instance_create_depth(x, y, depth, obj_gameover_effects);
+			instance_destroy();
 		}
 		break;
+	#endregion
+		
+	default:
+		state = "idle";
+		break;
+}
+
+if(y > room_height)
+{
+	room_restart();
 }

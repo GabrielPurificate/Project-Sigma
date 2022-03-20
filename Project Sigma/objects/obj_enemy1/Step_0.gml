@@ -9,8 +9,6 @@ if(y > room_height)
 	instance_destroy(self, false);
 }
 
-var _attackPlayer = collision_line(x, y - sprite_height / 2, x + (dist * image_xscale), y - sprite_height / 2, obj_player, 0, 1);
-
 //Aplicar a gravidade
 if(!_chao)
 {
@@ -34,10 +32,8 @@ switch(state)
 		{
 			state = choose("run", "idle", "run");
 			timerEstado = 0;
-		}else if(_attackPlayer) //Se o player está na visão atacar
-		{
-			state = "attack";
 		}
+		attackPlayerMelee(dist, image_xscale, obj_player);
 		break;
 	
 	case "run":
@@ -61,10 +57,8 @@ switch(state)
 		{
 			state = choose("idle", "run", "idle");
 			timerEstado = 0;
-		}else if(_attackPlayer) //Se o player está na visão atacar
-		{
-			state = "attack";
 		}
+		attackPlayerMelee(dist, image_xscale, obj_player);
 		break;
 	
 	case "attack":
@@ -72,25 +66,39 @@ switch(state)
 		if(sprite_index != spr_enemy1_attack)
 		{
 			image_index = 0;
+			possoAtacar = true;
+			possoUsarSFX = true;
 		}
 		
 		sprite_index = spr_enemy1_attack;
 		
-		/*Criar o objeto de dano
-		if(image_index >= image_number - 3 and hit == noone)
+		//Criar o objeto de dano
+		if(image_index >= 6 and hit == noone and possoAtacar)
 		{
-			hit = instance_create_layer(x + sprite_width / 3, y - sprite_height / 2, layer, obj_hit);
+			hit = instance_create_layer(x + sprite_width / 3, y - sprite_height / 3, layer, obj_hit);
 			hit.dano = ataque;
 			hit.pai = id;
-		}*/
+			possoAtacar = false;
+			if(possoUsarSFX == true)
+			{
+				audio_play_sound(snd_enemy1_attack, 2, false);
+				possoUsarSFX = false;
+			}
+		}
 		
-		if(image_index > image_index - 1)
+		if(image_index > image_number - 1)
 		{
 			state = "idle";
+			if(hit != noone)
+			{
+				instance_destroy(hit, false);
+				hit = noone;
+			}
 		}
 		break;
 	
 	case "hit":
+		velocidadeHorizontal = 0;
 		if (sprite_index != spr_enemy1_hit)
 		{
 			image_index = 0;
@@ -114,6 +122,7 @@ switch(state)
 		break;
 		
 	case "death":
+		velocidadeHorizontal = 0;
 		if (sprite_index != spr_enemy1_death)
 		{
 			image_index = 0;
