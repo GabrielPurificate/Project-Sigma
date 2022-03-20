@@ -242,8 +242,11 @@ switch(state)
 			{
 				instance_destroy();
 			}
+			
 			//Adicionar screenshake
 			obj_control.screenShake(15);
+			
+			instance_create_layer(x, y - 15, "Player", obj_moeda)
 		}
 		break;
 }

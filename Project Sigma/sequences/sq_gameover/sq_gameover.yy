@@ -19,7 +19,7 @@
   },
   "tracks": [
     {"keyframes":{"Keyframes":[
-          {"id":"59e7a340-461c-465f-a6ca-d8b5a58302fd","Key":0.0,"Length":80.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Text":"You Died","Wrap":false,"Alignment":0,"Id":{"name":"font_medieval","path":"fonts/font_medieval/font_medieval.yy",},"resourceVersion":"1.0","resourceType":"AssetTextKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<AssetTextKeyframe>",},
+          {"id":"59e7a340-461c-465f-a6ca-d8b5a58302fd","Key":0.0,"Length":80.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Text":"You Died","Wrap":false,"Alignment":0,"Id":{"name":"fnt_medieval","path":"fonts/fnt_medieval/fnt_medieval.yy",},"resourceVersion":"1.0","resourceType":"AssetTextKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<AssetTextKeyframe>",},
         ],"resourceVersion":"1.0","resourceType":"KeyframeStore<AssetTextKeyframe>",},"trackColour":4294068359,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[
         {"keyframes":{"Keyframes":[
               {"id":"37b91fb6-5e54-48c0-b066-509ce2d5e1d5","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"EmbeddedAnimCurve":null,"Colour":4278190335,"AnimCurveId":null,"resourceVersion":"1.0","resourceType":"ColourKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<ColourKeyframe>",},

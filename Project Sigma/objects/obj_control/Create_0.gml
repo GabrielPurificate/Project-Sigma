@@ -6,7 +6,7 @@
 	massa = 1;
 	ataque = 1;
 	state = "idle";
-	
+
 	showDebug = false;
 #endregion
 
@@ -16,7 +16,7 @@ if (!layer_sequence_exists("Assets", sq_logo) and room == rm_logo)
     audio_play_sound(snd_Splashscreen, 1, false);
 }
 
-if(room != rm_logo)
+if(room != rm_logo and room != rm_menu)
 {
 	if(audio_is_playing(snd_background) == false)
 	{
