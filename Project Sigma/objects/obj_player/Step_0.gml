@@ -238,6 +238,11 @@ switch state
 		if(image_index > image_number - 1)
 		{
 			instance_create_depth(x, y, depth, obj_gameover_effects);
+			//Apagar a surface
+			with(obj_luz)
+			{
+				surface_free(surf);
+			}
 			instance_destroy();
 		}
 		break;

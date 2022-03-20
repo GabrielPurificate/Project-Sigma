@@ -2,5 +2,5 @@
 
 function sq_logo_Moment()
 {
-	room_goto_next();
+	room_goto(rm_menu);
 }
