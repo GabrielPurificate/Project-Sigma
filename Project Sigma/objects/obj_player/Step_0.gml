@@ -255,14 +255,16 @@ switch state
 
 if(place_meeting(x, y, obj_moeda))
 {
-	if (!layer_sequence_exists("Assets", sq_endgame) and room == rm_3)
-	{
-	    layer_sequence_create("Assets", room_width / 2, room_height / 2, sq_endgame);
-	}
-	with(obj_moeda)
-	{
-		instance_destroy(obj_moeda.id);
-	}
+	//if (!layer_sequence_exists("Assets", sq_endgame) and room == rm_3)
+	//{
+	//    layer_sequence_create("Assets", room_width / 2, room_height / 2, sq_endgame);
+	//}
+	//with(obj_moeda)
+	//{
+	//	instance_destroy(obj_moeda.id);
+	//}
+	
+	room_goto(rm_gameover);
 }
 
 if(y > room_height)
