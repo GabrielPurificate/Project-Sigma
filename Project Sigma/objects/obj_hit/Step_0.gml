@@ -33,7 +33,13 @@ for (var i = 0; i < _tam; i++)
 	if(_outro.id != pai and _outro.vidaAtual > 0)
 	{
 		_outro.state = "hit";
-		_outro.vidaAtual -= dano;
+		if(!obj_player)
+		{
+			_outro.vidaAtual -= dano;
+		}else
+		{
+			global.vidaAtual--;
+		}
 		image_index = 0;
 		
 		if(object_get_parent(_outro.object_index) == obj_enemy_parent)

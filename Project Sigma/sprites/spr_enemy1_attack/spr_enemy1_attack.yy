@@ -53,7 +53,7 @@
     "spriteId": {"name":"spr_enemy1_attack","path":"sprites/spr_enemy1_attack/spr_enemy1_attack.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 8.0,
+    "playbackSpeed": 10.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,

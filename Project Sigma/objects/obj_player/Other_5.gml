@@ -1,3 +1,2 @@
 /// @description Insert description here
-
-desenharVida(margX);
+global.vidaAtual = vidaAtual;

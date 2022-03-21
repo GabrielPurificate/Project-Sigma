@@ -1,6 +1,6 @@
 event_inherited();
 
-vidaMax = 1;
+vidaMax = 24;
 vidaAtual = vidaMax;
 
 velocidade = 1.5;

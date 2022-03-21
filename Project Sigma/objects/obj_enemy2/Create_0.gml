@@ -11,12 +11,10 @@ dist = 40;
 hit = noone;
 ataque = 1;
 possoAtacar = true;
-possoUsarSFX = true;
 
-function attackPlayerMelee(_dist, _xscale, _outro)
+function attackPlayerMelee(_outro)
 {
-	var _attackPlayer = collision_line(x, y - sprite_height / 2, x + (_dist * _xscale), y - sprite_height / 2, _outro, false, true);
-	if(_attackPlayer and _outro.state != "death")
+	if(playerDistance < 50 and _outro.state != "death" and possoAtacar == true)
 	{
 		state = "attack";
 	}

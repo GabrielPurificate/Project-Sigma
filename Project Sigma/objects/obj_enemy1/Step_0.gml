@@ -1,92 +1,98 @@
-//Definir variaveis
-var _chao;
+event_inherited();
 
-_chao = place_meeting(x, y + 1, obj_block);
-
-//Cair se cair pra fora da room se destruir
-if(y > room_height)
+if(instance_exists(obj_player))
 {
-	instance_destroy(self, false);
+	playerDirection = point_direction(x, y, obj_player.x, obj_player.y);
+	playerDistance = point_distance(x, y, obj_player.x, obj_player.y);
 }
 
-//Aplicar a gravidade
-if(!_chao)
-{
-	velocidadeVertical += gravidade * massa;
-}
 
 switch(state)
 {
 	case "idle":
+	{
 		velocidadeHorizontal = 0;
-		timerEstado++;
 		if(sprite_index != spr_enemy1_idle)
 		{
+			sprite_index = spr_enemy1_idle;
 			image_index = 0;
 		}
-		
-		sprite_index = spr_enemy1_idle;
 		
 		//trocar de estados
-		if(irandom(timerEstado > 200))
+		if(playerDistance < 150)
 		{
-			state = choose("run", "idle", "run");
-			timerEstado = 0;
+			state = "run";
 		}
-		attackPlayerMelee(dist, image_xscale, obj_player);
+		if(instance_exists(obj_player))
+		{
+			attackPlayerMelee(obj_player);
+		}
 		break;
+	}
 	
 	case "run":
-		timerEstado++;
+	{
 		if(sprite_index != spr_enemy1_run)
 		{
+			sprite_index = spr_enemy1_run;
 			image_index = 0;
-			velocidadeHorizontal = choose(velocidade, -velocidade);
 		}
 		
-		sprite_index = spr_enemy1_run;
-		
-		//Se não tiver chão na frente trocar de direção
-		if(!place_meeting(x + sign(velocidadeHorizontal), y, obj_block) and !place_meeting(x + sign(velocidadeHorizontal), y + 1, obj_block) and !place_meeting(x + sign(velocidadeHorizontal), y + 2, obj_block))
+		if(playerDistance > 30)
+		{
+			velocidadeHorizontal = lengthdir_x(velocidade, playerDirection);
+		}
+		if(playerDistance >= 150)
+		{
+			state = "idle";
+		}
+
+		//Se não tiver chão na frente ou bater em uma parede deve trocar de direção
+		if(!place_meeting(x + sprite_width / 2 * sign(velocidadeHorizontal), y, obj_block) and !place_meeting(x + sprite_width / 2 * sign(velocidadeHorizontal), y + 1, obj_block))
 		{
 			velocidadeHorizontal *= -1;
 		}
 		
-		//trocar de estados
-		if(irandom(timerEstado > 200))
+		/*if(place_meeting(x + sign(velocidadeHorizontal), y, obj_block) and place_meeting(x + sign(velocidadeHorizontal), y - 1, obj_block))
 		{
-			state = choose("idle", "run", "idle");
-			timerEstado = 0;
+			velocidadeHorizontal = -1;
+		}*/
+		
+		//trocar de estados
+		if(instance_exists(obj_player))
+		{
+			attackPlayerMelee(obj_player);
 		}
-		attackPlayerMelee(dist, image_xscale, obj_player);
 		break;
+	}
 	
 	case "attack":
+	{
 		velocidadeHorizontal = 0;
 		if(sprite_index != spr_enemy1_attack)
 		{
+			sprite_index = spr_enemy1_attack;
 			image_index = 0;
-			possoAtacar = true;
-			possoUsarSFX = true;
 		}
 		
-		sprite_index = spr_enemy1_attack;
-		
 		//Criar o objeto de dano
-		if(image_index >= 6 and hit == noone and possoAtacar)
+		if(image_index >= 6 and hit == noone and possoAtacar == true)
 		{
 			hit = instance_create_layer(x + sprite_width / 3, y - sprite_height / 3, layer, obj_hit);
 			hit.dano = ataque;
 			hit.pai = id;
+			audio_play_sound(snd_enemy1_attack, 2, false);
+			alarm[0] = room_speed * 2;
 			possoAtacar = false;
-			if(possoUsarSFX == true)
-			{
-				audio_play_sound(snd_enemy1_attack, 2, false);
-				possoUsarSFX = false;
-			}
 		}
 		
-		if(image_index > image_number - 1)
+		if(image_index >= 7 and hit != noone)
+		{
+			instance_destroy(hit, false);
+			hit = noone;
+		}
+		
+		if(image_index >= image_number - 1)
 		{
 			state = "idle";
 			if(hit != noone)
@@ -96,15 +102,16 @@ switch(state)
 			}
 		}
 		break;
+	}
 	
 	case "hit":
+	{
 		velocidadeHorizontal = 0;
 		if (sprite_index != spr_enemy1_hit)
 		{
+			sprite_index = spr_enemy1_hit;
 			image_index = 0;
 		}
-		
-		sprite_index = spr_enemy1_hit;
 				
 		//Trocar de estado
 		if(image_index > image_number - 1)
@@ -120,8 +127,10 @@ switch(state)
 			}
 		}
 		break;
+	}
 		
 	case "death":
+	{
 		velocidadeHorizontal = 0;
 		if (sprite_index != spr_enemy1_death)
 		{
@@ -141,4 +150,10 @@ switch(state)
 			}
 		}
 		break;
+	}
+	default:
+	{
+		state = "idle";
+		break;
+	}
 }

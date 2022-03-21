@@ -6,6 +6,7 @@
 	massa = 1;
 	ataque = 1;
 	state = "idle";
+	global.vidaAtual = 3;
 
 	showDebug = false;
 #endregion

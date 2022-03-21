@@ -27,7 +27,6 @@
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":47.0,"y":340.0,"resourceVersion":"1.0","name":"inst_3F87B725","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1.0,"y":1.0,"resourceVersion":"1.0","name":"inst_65058382","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"obj_luz","path":"objects/obj_luz/obj_luz.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":23.0,"y":1.0,"resourceVersion":"1.0","name":"inst_2EAE0FF1","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":1,"gridY":1,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"Player","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_boss","path":"objects/obj_boss/obj_boss.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":409.0,"y":340.0,"resourceVersion":"1.0","name":"inst_1D66A815","tags":[],"resourceType":"GMRInstance",},
@@ -53,7 +52,6 @@
     {"name":"inst_2F3D29AA","path":"rooms/rm_3/rm_3.yy",},
     {"name":"inst_1D66A815","path":"rooms/rm_3/rm_3.yy",},
     {"name":"inst_65058382","path":"rooms/rm_3/rm_3.yy",},
-    {"name":"inst_2EAE0FF1","path":"rooms/rm_3/rm_3.yy",},
     {"name":"inst_3F87B725","path":"rooms/rm_3/rm_3.yy",},
     {"name":"inst_1D0681F6","path":"rooms/rm_3/rm_3.yy",},
     {"name":"inst_476B2EF3","path":"rooms/rm_3/rm_3.yy",},

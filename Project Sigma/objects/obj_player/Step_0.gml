@@ -190,6 +190,12 @@ switch state
 			}
 			possoUsarSFX = true;
 		}
+		
+		if(combo == 0)
+		{
+			possoAtacar = false;
+			alarm[0] = room_speed * 1.5;
+		}
 		break;
 	#endregion
 		
@@ -208,11 +214,11 @@ switch state
 		if(image_index > image_number - 1)
 		{
 			//Checar se ainda tem vida
-			if(vidaAtual > 0)
+			if(global.vidaAtual > 0)
 			{
 				state = "idle";
 			}
-			else if(vidaAtual <= 0)
+			else if(global.vidaAtual <= 0)
 			{
 				state = "death";
 			}
@@ -269,5 +275,5 @@ if(place_meeting(x, y, obj_moeda))
 
 if(y > room_height)
 {
-	room_restart();
+	state = "death";
 }
