@@ -32,13 +32,14 @@ for (var i = 0; i < _tam; i++)
 	_outro = aplicarDano[| i].id;
 	if(_outro.id != pai and _outro.vidaAtual > 0)
 	{
-		_outro.state = "hit";
-		if(!obj_player)
+		if(obj_player.id == _outro.id)
 		{
-			_outro.vidaAtual -= dano;
+			obj_player.state = "hit";
+			global.vidaAtual--;
 		}else
 		{
-			global.vidaAtual--;
+			_outro.state = "hit";
+			_outro.vidaAtual -= dano;
 		}
 		image_index = 0;
 		
