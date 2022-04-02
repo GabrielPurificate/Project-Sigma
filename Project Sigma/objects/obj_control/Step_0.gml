@@ -1,5 +1,5 @@
 /// @description Insert description here
-if(keyboard_check_pressed(vk_enter) and room != rm_logo and room != rm_menu)
+if(keyboard_check_pressed(vk_enter) and room != rm_logo and room != rm_menu and !instance_exists(obj_player))
 {
 	if(instance_exists(obj_gameover_effects))
 	{
@@ -13,5 +13,5 @@ if(keyboard_check_pressed(vk_enter) and room != rm_logo and room != rm_menu)
 		fx_set_parameter(layer_distort, "g_DistortScale", 0);
 		fx_set_parameter(layer_distort, "g_DistortAmount", 0);
 	}
-	room_restart();
+	room_goto(rm_1);
 }

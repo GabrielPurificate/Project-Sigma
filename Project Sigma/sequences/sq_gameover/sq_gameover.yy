@@ -90,7 +90,15 @@
   "backdropYOffset": 0.0,
   "xorigin": 0,
   "yorigin": 0,
-  "eventToFunction": {},
+  "eventToFunction": {
+    "0": "",
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    "6": "",
+  },
   "eventStubScript": null,
   "parent": {
     "name": "Sequences",

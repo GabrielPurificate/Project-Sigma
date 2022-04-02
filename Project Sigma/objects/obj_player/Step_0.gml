@@ -190,12 +190,6 @@ switch state
 			}
 			possoUsarSFX = true;
 		}
-		
-		if(combo == 0)
-		{
-			possoAtacar = false;
-			alarm[0] = room_speed * 1.5;
-		}
 		break;
 	#endregion
 		
